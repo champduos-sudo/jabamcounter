@@ -10,6 +10,15 @@
     const successModal = document.getElementById('successModal');
     const closeModal = document.getElementById('closeModal');
     const modalReset = document.getElementById('modalReset');
+    const themeToggle = document.getElementById('themeToggle');
+
+    function setTheme(theme) {
+        document.documentElement.dataset.theme = theme;
+        const darkMode = theme === 'dark';
+        themeToggle.textContent = darkMode ? 'Light mode' : 'Dark mode';
+        themeToggle.setAttribute('aria-label', darkMode ? 'Switch to light mode' : 'Switch to dark mode');
+        localStorage.setItem('jabam-theme', theme);
+    }
 
     function updateDisplay() {
         const max = getMaxCount();
@@ -56,6 +65,9 @@
     jabamButton.addEventListener('click', increment);
     resetButton.addEventListener('click', reset);
     modalReset.addEventListener('click', reset);
+    themeToggle.addEventListener('click', () => {
+        setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark');
+    });
     closeModal.addEventListener('click', hideModal);
     maxInput.addEventListener('input', updateDisplay);
     successModal.addEventListener('click', (event) => {
@@ -72,5 +84,6 @@
         }
     });
 
+    setTheme(localStorage.getItem('jabam-theme') || 'light');
     updateDisplay();
 })();

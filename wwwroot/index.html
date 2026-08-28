@@ -8,6 +8,7 @@
 </head>
 <body>
     <main class="counter-card">
+        <button id="themeToggle" class="theme-toggle" type="button" aria-label="Switch to dark mode">Dark mode</button>
         <div class="eyebrow">Gayathri Jabam</div>
         <h1>Jabam Counter</h1>
         <p class="subtitle">ஓம் பூர்: புவ: ஸுவ: தத் ஸவிதுர் வரேண்யம் பர்கோ தேவஸ்ய தீமஹி தியோ: யோந: ப்ரசோதயாத்..!</p>
@@ -25,12 +26,12 @@
                 <span>Progress</span>
                 <strong id="progressPercent">0%</strong>
             </div>
-            <div class="progress-track" role="progressbar" aria-labelledby="count" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0">
+            <div class="progress-track" role="progressbar" aria-labelledby="count" aria-valuemin="0" aria-valuemax="1008" aria-valuenow="0">
                 <div id="progressBar" class="progress-bar"></div>
             </div>
         </div>
 
-        <p id="count" aria-live="polite">0 <span>/ 10</span></p>
+        <p id="count" aria-live="polite">0 <span>/ 1008</span></p>
         <div class="actions">
             <button id="jabam" type="button">Jabam <span aria-hidden="true">+</span></button>
             <button id="reset" class="reset-button" type="button">Reset</button>
