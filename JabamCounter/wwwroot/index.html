@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jabam Counter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="counter-card">
+        <div class="eyebrow">Mindful moments</div>
+        <h1>Jabam Counter</h1>
+        <p class="subtitle">Keep your practice moving, one count at a time.</p>
+
+        <div class="settings">
+            <label for="maxCount">Daily goal</label>
+            <div class="input-wrap">
+                <input id="maxCount" type="number" min="1" value="10">
+                <span>counts</span>
+            </div>
+        </div>
+
+        <div class="progress-section" aria-label="Counting progress">
+            <div class="progress-labels">
+                <span>Progress</span>
+                <strong id="progressPercent">0%</strong>
+            </div>
+            <div class="progress-track" role="progressbar" aria-labelledby="count" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0">
+                <div id="progressBar" class="progress-bar"></div>
+            </div>
+        </div>
+
+        <p id="count" aria-live="polite">0 <span>/ 10</span></p>
+        <div class="actions">
+            <button id="jabam" type="button">Jabam <span aria-hidden="true">+</span></button>
+            <button id="reset" class="reset-button" type="button">Reset</button>
+        </div>
+        <p class="hint">Click Jabam or press the Spacebar to count.</p>
+    </main>
+
+    <div id="successModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="successTitle" hidden>
+        <div class="modal-card">
+            <button id="closeModal" class="close-button" type="button" aria-label="Close success message">&times;</button>
+            <img class="success-gif" src="https://media.giphy.com/media/g9582DNuQppxC/giphy.gif" alt="Celebration animation">
+            <div class="success-icon" aria-hidden="true">✓</div>
+            <h2 id="successTitle">Goal complete!</h2>
+            <p id="successMessage">You reached your goal. Amazing work!</p>
+            <button id="modalReset" class="modal-action" type="button">Start again</button>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
