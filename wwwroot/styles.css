@@ -2,10 +2,32 @@
     box-sizing: border-box;
 }
 
+:root {
+    color-scheme: light;
+    --page-background: linear-gradient(135deg, #f8fafc, #eef2ff);
+    --card-background: rgb(255 255 255 / 88%);
+    --text: #172554;
+    --muted: #64748b;
+    --soft: #94a3b8;
+    --input-background: #f8fafc;
+    --input-border: #dbeafe;
+}
+
+:root[data-theme="dark"] {
+    color-scheme: dark;
+    --page-background: radial-gradient(circle at top left, #1e3a8a 0, transparent 38%), linear-gradient(135deg, #0f172a, #1e1b4b);
+    --card-background: rgb(15 23 42 / 94%);
+    --text: #e0e7ff;
+    --muted: #cbd5e1;
+    --soft: #94a3b8;
+    --input-background: #1e293b;
+    --input-border: #475569;
+}
+
 body {
     align-items: center;
-    background: radial-gradient(circle at top left, #dbeafe 0, transparent 38%), linear-gradient(135deg, #f8fafc, #eef2ff);
-    color: #172554;
+    background: var(--page-background);
+    color: var(--text);
     display: flex;
     font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     justify-content: center;
@@ -16,7 +38,7 @@ body {
 }
 
 .counter-card {
-    background: rgb(255 255 255 / 88%);
+    background: var(--card-background);
     border: 1px solid rgb(255 255 255 / 80%);
     border-radius: 24px;
     box-shadow: 0 24px 70px rgb(30 64 175 / 15%);
@@ -25,6 +47,19 @@ body {
     text-align: center;
     width: 100%;
 }
+
+.theme-toggle {
+    background: transparent;
+    border: 1px solid var(--input-border);
+    border-radius: 999px;
+    color: var(--muted);
+    cursor: pointer;
+    font-size: .8rem;
+    font-weight: 700;
+    padding: .5rem .8rem;
+}
+
+.theme-toggle:hover { background: var(--input-background); }
 
 .eyebrow {
     color: #4f46e5;
@@ -41,7 +76,7 @@ h1 {
 }
 
 .subtitle {
-    color: #64748b;
+    color: var(--muted);
     margin: 0 0 2rem;
 }
 
@@ -59,8 +94,8 @@ label {
 
 .input-wrap {
     align-items: center;
-    background: #f8fafc;
-    border: 1px solid #dbeafe;
+    background: var(--input-background);
+    border: 1px solid var(--input-border);
     border-radius: 12px;
     display: flex;
     padding: .15rem .85rem;
@@ -69,7 +104,7 @@ label {
 input {
     background: transparent;
     border: 0;
-    color: #172554;
+    color: var(--text);
     font-size: 1rem;
     font-weight: 700;
     outline: 0;
@@ -120,7 +155,7 @@ input {
 }
 
 #count {
-    color: #172554;
+    color: var(--text);
     font-size: 3rem;
     font-weight: 800;
     letter-spacing: -.06em;
@@ -136,7 +171,14 @@ input {
 
 .actions {
     display: flex;
+    flex-direction: column;
     gap: .75rem;
+}
+
+#jabam {
+    flex: none;
+    min-height: 60px;
+    width: 100%;
 }
 
 #jabam, .modal-action {
@@ -178,6 +220,9 @@ input {
     cursor: pointer;
     font-weight: 700;
     padding: .9rem 1.2rem;
+    margin-top: .25rem;
+    align-self: center;
+    min-width: 120px;
 }
 
     .reset-button:hover {
@@ -263,7 +308,7 @@ input {
 }
 
 .modal-card h2 {
-    color: #172554;
+    color: var(--text);
     margin: 0 0 .5rem;
 }
 
